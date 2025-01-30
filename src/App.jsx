@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ContactList from './commponents/ContactList/ContactList.jsx';
-import SearchBox from './components/SearchBox/SearchBox';
+// import SearchBox from './components/SearchBox/SearchBox';
 import './App.css';
 
 const App = () => {
