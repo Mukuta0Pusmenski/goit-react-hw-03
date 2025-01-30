@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import ContactList from './commponents/ContactList/ContactList.jsx';
-// import SearchBox from './components/SearchBox/SearchBox';
-import './App.css';
+import ContactList from './components/ContactList/ContactList';
+import SearchBox from './components/SearchBox/SearchBox';
+import './App.module.css';
 
 const App = () => {
   const [contacts, setContacts] = useState([
@@ -10,11 +10,17 @@ const App = () => {
     { id: 'id-3', name: 'Eden Clements', number: '645-17-79' },
     { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
   ]);
+  const [searchTerm, setSearchTerm] = useState('');
+
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   return (
     <div className="App">
       <h1>Phonebook</h1>
-      <ContactList contacts={contacts} />
+      <SearchBox setSearchTerm={setSearchTerm} />
+      <ContactList contacts={filteredContacts} />
     </div>
   );
 };
