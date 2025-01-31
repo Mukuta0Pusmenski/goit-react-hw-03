@@ -17,6 +17,10 @@ const App = () => {
     setContacts([...contacts, newContact]);
   };
 
+  const deleteContact = (id) => {
+    setContacts(contacts.filter(contact => contact.id !== id));
+  };
+
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -26,7 +30,7 @@ const App = () => {
       <h1>Phonebook</h1>
       <ContactForm addContact={addContact} /> {/* Додаємо компонент ContactForm */}
       <SearchBox setSearchTerm={setSearchTerm} />
-      <ContactList contacts={filteredContacts} />
+      <ContactList contacts={filteredContacts} deleteContact={deleteContact} />
     </div>
   );
 };

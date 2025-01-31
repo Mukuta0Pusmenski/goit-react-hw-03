@@ -1,13 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ContactItem from '../ContactItem/ContactItem.jsx'; // Вказали .jsx
+import ContactItem from '../ContactItem/ContactItem.jsx';
 import './ContactList.module.css';
 
-const ContactList = ({ contacts }) => {
+const ContactList = ({ contacts, deleteContact }) => {
   return (
     <ul className="ContactList">
       {contacts.map(contact => (
-        <ContactItem key={contact.id} contact={contact} />
+        <ContactItem
+          key={contact.id}
+          contact={contact}
+          deleteContact={deleteContact}
+        />
       ))}
     </ul>
   );
@@ -21,6 +25,7 @@ ContactList.propTypes = {
       number: PropTypes.string.isRequired,
     })
   ).isRequired,
+  deleteContact: PropTypes.func.isRequired,
 };
 
 export default ContactList;
