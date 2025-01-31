@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import ContactList from './components/ContactList/ContactList.jsx';
 import SearchBox from './components/SearchBox/SearchBox.jsx';
+import ContactForm from './components/ContactForm/ContactForm.jsx'; // Додаємо імпорт
 import './App.module.css';
 
 const App = () => {
@@ -12,6 +13,10 @@ const App = () => {
   ]);
   const [searchTerm, setSearchTerm] = useState('');
 
+  const addContact = (newContact) => {
+    setContacts([...contacts, newContact]);
+  };
+
   const filteredContacts = contacts.filter(contact =>
     contact.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -19,6 +24,7 @@ const App = () => {
   return (
     <div className="App">
       <h1>Phonebook</h1>
+      <ContactForm addContact={addContact} /> {/* Додаємо компонент ContactForm */}
       <SearchBox setSearchTerm={setSearchTerm} />
       <ContactList contacts={filteredContacts} />
     </div>
