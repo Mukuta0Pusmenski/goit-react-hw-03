@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import ContactList from './components/ContactList/ContactList'; // Виправлений шлях
-import SearchBox from './components/SearchBox/SearchBox'; // Виправлений шлях
+import ContactList from './components/ContactList/ContactList.jsx'; // Додали .jsx
+import SearchBox from './components/SearchBox/SearchBox.jsx'; // Додали .jsx
 import './App.module.css';
 
 const App = () => {
